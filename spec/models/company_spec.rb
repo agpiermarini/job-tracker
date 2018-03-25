@@ -41,8 +41,8 @@ describe Company do
         job_3 = Job.create!(title: "Job 3", description: "Job 3", level_of_interest: 1, city: "Job 3", company_id: 1, category_id: 1)
         job_4 = Job.create!(title: "Job 4", description: "Job 4", level_of_interest: 1, city: "Job 4", company_id: 1, category_id: 2)
 
-        expect(company.jobs_by_category(1).size).to eq(3)
         expect(company.jobs.size).to eq(4)
+        expect(company.jobs_by_category(1).size).to eq(3)
       end
     end
   end
