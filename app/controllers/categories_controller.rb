@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
       redirect_to category_path(@category)
     else
       flash[:success] = "Failed to create category"
-      redirect_to new_category_path
+      redirect_back fallback_location: new_category_path
     end
   end
 
