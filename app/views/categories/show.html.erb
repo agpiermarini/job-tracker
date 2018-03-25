@@ -1,1 +1,14 @@
 Category: <%= @category.title  %>
+
+<% @companies.each do |company| %>
+<ul class="companies">
+  <li>Jobs at <%= company.name %>:</p></li>
+  <% company.jobs.each do |job| %>
+  <ul class="jobs">
+    <li>Title: <%= job.title %></li>
+    <li><%= job.description %></li>
+    <li><%= job.city %></li>
+  </ul>
+  <% end %>
+</ul>
+<% end %>
