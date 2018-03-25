@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-
+    @categories = Category.by_name
   end
 
   def new
@@ -24,15 +24,30 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-
+    @category = Category.find(params[:id])
   end
 
   def update
-
+    @category = Category.find(params[:id])
+    @category.update(category_params)
+    if @category.save
+      flash[:success] = "Category title changed to #{@category.title}"
+      redirect_to categories_path
+    else
+      flash[:success] = "Failed to update category"
+      redirect_to edit_category_path(@category)
+    end
   end
 
   def destroy
-
+    @category = Category.find(params[:id])
+    if @category.destroy
+      flash[:success] = "#{@category.title} deleted"
+      redirect_to categories_path
+    else
+      flash[:success] = "Failed to delete category"
+      redirect_to edit_category_path(@category)
+    end
   end
 
   private
