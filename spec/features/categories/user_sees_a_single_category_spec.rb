@@ -11,7 +11,7 @@ describe 'User visits page for a single category' do
       job_3 = company.jobs.create(title: "Recruiter", level_of_interest: 5, city: "Boulder", category_id: category_1.id)
       job_4 = company.jobs.create(title: "Software Developer", level_of_interest: 5, city: "Boulder", category_id: category_2.id)
 
-      visit category_path(category_2)
+      visit category_path(category_1)
 
       expect(page).to have_content("User Experience Researcher I")
       expect(page).to have_content("User Experience Researcher II")
