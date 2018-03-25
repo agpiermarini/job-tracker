@@ -14,7 +14,8 @@ class CategoriesController < ApplicationController
       flash[:success] = "You created the #{@category.title} Category"
       redirect_to category_path(@category)
     else
-      render :new
+      flash[:success] = "Failed to create category"
+      redirect_to new_category_path
     end
   end
 

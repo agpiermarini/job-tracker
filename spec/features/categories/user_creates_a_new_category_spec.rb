@@ -15,7 +15,7 @@ describe 'User creates a new category' do
 
 
   context 'a user tries to create category that already exists' do
-    it 'they are directed to the new category form' do
+    it 'they are redirected to the new category form' do
       @category = Category.create!(title: "Software")
       visit new_category_path
 
