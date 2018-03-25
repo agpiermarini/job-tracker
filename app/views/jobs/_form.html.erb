@@ -11,5 +11,7 @@
   <%= f.label :city %>
   <%= f.text_field :city %>
 
+  <%= f.collection_select(:category_id, @categories, :id, :title, {prompt: "Select a Category"}, {required: true})%>
+
   <%= f.submit %>
 <% end %>
