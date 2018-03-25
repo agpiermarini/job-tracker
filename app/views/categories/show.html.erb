@@ -2,10 +2,10 @@
 
 <% @companies.each do |company| %>
   <div class="company-jobs">
-    <h4><%= @category.title %> Jobs at <%= company.name %>:</h4>
       <% company.jobs.each do |job| %>
       <ul>
-        <li><span class="label">Title: </span><span class="info"><%= job.title %></span></li>
+        <li><span class="job-title"><%= job.title %></span></li>
+        <li><span class="label">Company: </span><span class="info"><%= company.name %></span>
         <li><span class="label">Description: </span><span class="info"><%= job.description %></span></li>
         <li><span class="label">City: </span><span class="info"><%= job.city %></span></li>
       </ul>
