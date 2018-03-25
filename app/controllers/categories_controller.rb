@@ -8,7 +8,6 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    binding.pry
     @category = Category.new(category_params)
     if @category.save
       flash[:success] = "You created the #{@category.title} Category"
