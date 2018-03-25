@@ -6,9 +6,8 @@ describe 'User creates a new category' do
 
     fill_in 'category[title]', with: "Software"
 
-    click_button "Create New Category"
+    click_button "Create"
 
-    expect(current_path).to eq("/categories/#{category.id}")
-    expect(page).to have_content("You created the #{category.title} Category")
+    expect(page).to have_content("You created the Software Category")
   end
 end
