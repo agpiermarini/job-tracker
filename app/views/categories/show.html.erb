@@ -1,0 +1,14 @@
+<h3>Category: <%= @category.title  %></h3>
+
+<% @companies.each do |company| %>
+  <div class="company-jobs">
+      <% company.jobs_by_category(@category.id).each do |job| %>
+      <ul>
+        <li><span class="title"><%= job.title %></span></li>
+        <li><span class="label">Company: </span><span class="info"><%= company.name %></span>
+        <li><span class="label">Description: </span><span class="info"><%= job.description %></span></li>
+        <li><span class="label">City: </span><span class="info"><%= job.city %></span></li>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
