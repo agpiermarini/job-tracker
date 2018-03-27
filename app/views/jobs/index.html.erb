@@ -1,4 +1,8 @@
-Jobs at <strong><%= @company.name %></strong>
+<% if @company %>
+  Jobs at <strong><%= @company.name %></strong>
+<% else %>
+  All Jobs
+<% end %>
 
 <% @jobs.each do |job| %>
   <ul><%= job.title %> at <%= job.company.name %></ul>
