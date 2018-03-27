@@ -11,8 +11,8 @@
       <th></th>
       <th>Role</th>
       <th>Company</th>
-      <th>City</th>
-      <th>Interest</th>
+      <th><%= link_to "Location", controller: "jobs", sort: "location" %></th>
+      <th><%= link_to "Interest", controller: "jobs", sort: "interest" %></th>
     </tr>
   </thead>
   <tbody class="table-collection">
