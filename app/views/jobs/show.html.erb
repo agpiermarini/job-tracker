@@ -1,16 +1,40 @@
-Title: <%= @job.title %>
+<%= @job.title %> at <%= link_to @job.company.name, company_path(@job.company) %>
+<br>
+<%= link_to "Edit", edit_company_job_path(@job.company, @job) %>
+<%= link_to "Delete", company_job_path(@job.company, @job), method: :delete, data: { confirm: "You are about to delete this job."} %>
 <br>
 
 Description: <%= @job.description %>
 <br>
 
-Level of Interest: <%= @job.level_of_interest %>
-<br>
-
 City: <%= @job.city %>
 <br>
 
-Company: <%= link_to @job.company.name, company_path(@job.company) %>
+Level of Interest: <%= @job.interest %>
 <br>
-<%= link_to "Edit", edit_company_job_path(@job.company, @job) %>
-<%= link_to "Delete", company_job_path(@job.company, @job), method: :delete, data: { confirm: "You are about to delete this job."} %>
+
+<%= form_for [@job, @comment] do |f| %>
+  <%= f.label :content, "Notes:" %>
+  <%= f.text_area :content, required: true %>
+  <%= f.submit "Save" %>
+<% end %>
+
+
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+        <!-- <th>Created</th> -->
+        <!-- <th>Comment</th> -->
+      <tr>
+    </thead>
+    <tbody>
+    <% @job.comments.each do |comment| %>
+      <tr>
+        <td><%= comment.created_at %></td>
+        <td><%= comment.content %></td>
+      </tr>
+    <% end %>
+    <tbody>
+  </table>
+</div>
