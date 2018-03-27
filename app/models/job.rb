@@ -3,6 +3,8 @@ class Job < ApplicationRecord
   belongs_to :company
   belongs_to :category
 
+  has_many :comments
+
 
   def interest
     stars = (level_of_interest.to_f/20).ceil
