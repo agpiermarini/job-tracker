@@ -43,16 +43,4 @@ describe 'User visits categories index' do
     expect(page).to have_content("New Category Name")
     expect(page).to_not have_content("Category 1")
   end
-  #
-  # scenario 'a user can delete a category'
-  #   category_1 = Category.create!(title: "Category 1")
-  #
-  #   visit categories_path
-  #
-  #   click_button "Delete"
-  #
-  #   expect(current_path).to eq(category_path)
-  #   expect(page).to_not have_content("Category 1")
-  # end
-  #
 end
