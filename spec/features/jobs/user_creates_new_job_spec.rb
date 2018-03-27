@@ -44,7 +44,7 @@ describe "User" do
   context 'can create a job from the jobs path' do
     scenario 'it saves the new job' do
       company = Company.create!(name: "ESPN")
-      category = Category.create!(title: "Media")
+      category = Category.create!(id: 4, title: "Media")
       visit new_job_path
 
       expect(page).to_not have_content('Create a New Job at')
@@ -63,6 +63,7 @@ describe "User" do
       expect(page).to have_content("Developer")
       expect(page).to have_content("80")
       expect(page).to have_content("Denver")
+      expect(Job.last.category_id).to eq(4)
     end
   end
 end
