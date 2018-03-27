@@ -20,7 +20,7 @@ describe "User" do
       expect(current_path).to eq("/companies/#{company.id}/jobs/#{Job.last.id}")
       expect(page).to have_content("ESPN")
       expect(page).to have_content("Developer")
-      expect(page).to have_content("80")
+      expect(page).to have_content("****")
       expect(page).to have_content("Denver")
     end
 
@@ -61,7 +61,7 @@ describe "User" do
       expect(current_path).to eq("/companies/#{company.id}/jobs/#{Job.last.id}")
       expect(page).to have_content("ESPN")
       expect(page).to have_content("Developer")
-      expect(page).to have_content("80")
+      expect(page).to have_content("****")
       expect(page).to have_content("Denver")
       expect(Job.last.category_id).to eq(4)
     end
