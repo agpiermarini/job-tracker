@@ -16,7 +16,7 @@ describe 'User visits page for a single category' do
       visit category_path(category_1)
 
 
-      expect(page).to have_content("User Experience Researcher I")
+      expect(page).to have_content(job_1.title)
       expect(page).to have_content("User Experience Researcher II")
       expect(page).to have_content("Recruiter")
       expect(page).to_not have_content("Software Developer")

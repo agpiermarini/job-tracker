@@ -1,6 +1,7 @@
 class Job < ApplicationRecord
   validates :title, :level_of_interest, :city, presence: true
   belongs_to :company
+  belongs_to :category
 
 
   def interest
@@ -10,5 +11,13 @@ class Job < ApplicationRecord
 
   def self.by_category(id, sort = "companies.name")
     joins(:company).where(category_id: id).order(sort)
+  end
+
+  def self.filter_by(sort_by, sort = "company_id")
+    if sort_by[:city]
+      joins(:company).where(city: sort_by[:city]).order(sort)
+    elsif sort_by[:title]
+      joins(:category).where(title: sort_by[:title]).order(sort)
+    end
   end
 end

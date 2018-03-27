@@ -21,8 +21,9 @@ describe Job do
 
     context "valid attributes" do
       it "is valid with a title, level of interest, and company" do
+        category = Category.create!(title: "Software")
         company = Company.new(name: "Turing")
-        job = Job.new(title: "Developer", level_of_interest: 40, city: "Denver", company: company)
+        job = Job.new(title: "Developer", level_of_interest: 40, city: "Denver", company: company, category_id: category.id)
         expect(job).to be_valid
       end
     end
@@ -39,9 +40,10 @@ describe Job do
     describe "#interest" do
       it "returns level_of_interest translated to asterisks on a scale of 1 asterisk to 5" do
         company = Company.create!(id: 1, name: "Dropbox")
-        job_1 = company.jobs.create!(title: "Job 1", description: "Job 1", level_of_interest: 1, city: "Job 1")
-        job_2 = company.jobs.create!(title: "Job 2", description: "Job 2", level_of_interest: 65, city: "Job 2")
-        job_3 = company.jobs.create!(title: "Job 3", description: "Job 3", level_of_interest: 90, city: "Job 3")
+        category = Category.create!(id: 1, title: "Test_Category_1")
+        job_1 = company.jobs.create!(title: "Job 1", description: "Job 1", level_of_interest: 1, city: "Job 1", category_id: category.id)
+        job_2 = company.jobs.create!(title: "Job 2", description: "Job 2", level_of_interest: 65, city: "Job 2", category_id: category.id)
+        job_3 = company.jobs.create!(title: "Job 3", description: "Job 3", level_of_interest: 90, city: "Job 3", category_id: category.id)
 
         expect(job_1.interest).to eq("*")
         expect(job_2.interest).to eq("****")
