@@ -1,0 +1,41 @@
+<div class="company-header">
+  <h1><%= @company.name %></h1>
+  <%= link_to "Edit", edit_company_path(@company) %>
+  <%= link_to "Delete", company_path(@company), method: :delete, data: { confirm: "You are about to delete this company."} %>
+</div>
+
+<div class="show-form">
+  <%= form_for [@company, @contact] do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :role %>
+    <%= f.text_field :role %>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    <%= f.submit :Save %>
+  <% end %>
+</div>
+
+<table>
+  <thead class="table-collection">
+    <tr class="table-header">
+      <th></th>
+      <th></th>
+      <th>Contact Name</th>
+      <th>Role</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody class="table-collection">
+    <% @company.contacts do |contact| %>
+      <% binding.pry %>
+      <tr class="table-item">
+        <td><%= link_to "Edit", edit_company_path(@company) %></td>
+        <td><%= link_to "Delete", company_path(@company), method: :delete, data: { confirm: "You are about to delete this contact."} %></td>
+        <td><%= contact.name %></td>
+        <td><%= contact.role %></td>
+        <td><%= mail_to contact.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
