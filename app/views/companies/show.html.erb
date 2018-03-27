@@ -5,15 +5,14 @@
 </div>
 
 <div class="show-form">
-  <%= form_for @contact do |f| %>
-    <%= render "shared/errors", object: :contact %>
+  <%= form_for [@company, @contact] do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :field %>
+    <%= f.text_field :name %>
     <%= f.label :role %>
     <%= f.text_field :role %>
     <%= f.label :email %>
     <%= f.email_field :email %>
-    <%= f.submit %>
+    <%= f.submit :Save %>
   <% end %>
 </div>
 
