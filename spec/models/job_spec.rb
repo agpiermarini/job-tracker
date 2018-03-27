@@ -109,5 +109,43 @@ describe Job do
         expect(Job.by_category(1, "level_of_interest").first).to eq(job_5)
       end
     end
+
+    describe ".filter_by with city parameter" do
+      it "returns jobs in a city sorted by company" do
+        company_1 = Company.create!(id: 1, name: "Propbox")
+        company_2 = Company.create!(id: 2, name: "Dropbox")
+        company_3 = Company.create!(id: 3, name: "Cropbox")
+        Category.create!(id: 1, title: "Test_Category_1")
+        Category.create!(id: 2, title: "Test_Category_2")
+        job_1 = company_1.jobs.create!(title: "Job 1", description: "A", level_of_interest: 5, city: "Albuquerque", category_id: 1)
+        job_2 = company_2.jobs.create!(title: "Job 2", description: "B", level_of_interest: 4, city: "Boston", category_id: 1)
+        job_3 = company_3.jobs.create!(title: "Job 3", description: "C", level_of_interest: 3, city: "Chicago", category_id: 1)
+        job_4 = company_1.jobs.create!(title: "Job 4", description: "D", level_of_interest: 2, city: "Denver", category_id: 2)
+        job_5 = company_1.jobs.create!(title: "Job 5", description: "E", level_of_interest: 1, city: "Denver", category_id: 1)
+
+        expect(Job.all.size).to eq(5)
+        expect(Job.filter_by({ city: 'Denver' }, "companies.name").size).to eq(2)
+        expect(Job.filter_by({ city: 'Denver' }, "companies.name").first).to eq(job_4)
+      end
+    end
+
+    describe ".filter_by with category parameter" do
+      it "returns jobs matching a category name sorted by company" do
+        company_1 = Company.create!(id: 1, name: "Propbox")
+        company_2 = Company.create!(id: 2, name: "Dropbox")
+        company_3 = Company.create!(id: 3, name: "Cropbox")
+        Category.create!(id: 1, title: "Develper")
+        Category.create!(id: 2, title: "Test_Category_2")
+        job_1 = company_1.jobs.create!(title: "Job 1", description: "A", level_of_interest: 5, city: "Albuquerque", category_id: 1)
+        job_2 = company_2.jobs.create!(title: "Job 2", description: "B", level_of_interest: 4, city: "Boston", category_id: 1)
+        job_3 = company_3.jobs.create!(title: "Job 3", description: "C", level_of_interest: 3, city: "Chicago", category_id: 1)
+        job_4 = company_1.jobs.create!(title: "Job 4", description: "D", level_of_interest: 2, city: "Denver", category_id: 2)
+        job_5 = company_1.jobs.create!(title: "Job 5", description: "E", level_of_interest: 1, city: "Denver", category_id: 2)
+
+        expect(Job.all.size).to eq(5)
+        expect(Job.filter_by({ category: 'Developer' }, "companies.name").size).to eq(3)
+        expect(Job.filter_by({ category: 'Developer' }, "companies.name").first).to eq(job_1)
+      end
+    end
   end
 end

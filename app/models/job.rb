@@ -13,7 +13,7 @@ class Job < ApplicationRecord
     joins(:company).where(category_id: id).order(sort)
   end
 
-  def self.filter_by(sort_by, sort = "company_id")
+  def self.filter_by(sort_by, sort = "companies.name")
     if sort_by[:city]
       joins(:company).where(city: sort_by[:city]).order(sort)
     elsif sort_by[:title]
