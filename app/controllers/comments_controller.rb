@@ -7,7 +7,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    binding.pry
     @job = Job.find(params[:job_id])
     @comment = @job.comments.create(comment_params)
     flash[:success] = "You added a new comment to #{@job.title} at #{@job.company.name}"
