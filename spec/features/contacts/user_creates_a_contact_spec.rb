@@ -11,12 +11,10 @@ describe 'when user is on a company show page' do
       fill_in 'contact[email]', with: 'tom@company.com'
       click_button 'Save'
 
-      expect(current_path).to eq('/companies/:id')
-      within '.contacts-list' do
-        expect(page).to have_content('Tom')
-        expect(page).to have_content('Manager')
-        expect(page).to have_content('tom@company.com')
-      end
+      expect(current_path).to eq(company_path(company))
+      expect(page).to have_content('Tom')
+      expect(page).to have_content('Manager')
+      expect(page).to have_content('tom@company.com')
     end
   end
 end

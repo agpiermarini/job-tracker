@@ -38,7 +38,6 @@ class CompaniesController < ApplicationController
   end
 
   def destroy
-    binding.pry
     company = Company.find(params[:id])
     company.destroy
 
