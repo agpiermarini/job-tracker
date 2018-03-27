@@ -20,7 +20,11 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @jobs = Job.by_category(params[:id])
+    if params[:sort]
+      @jobs = Job.by_category(params[:id], params[:sort])
+    else
+      @jobs = Job.by_category(params[:id])
+    end
   end
 
   def edit

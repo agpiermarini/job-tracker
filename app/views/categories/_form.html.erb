@@ -1,5 +1,9 @@
 <%= form_for @category do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-  <%= f.submit %>
+  <div class="cancel-submit">
+    <%= button_to "Cancel", categories_path %>
+    <%= f.submit %>
+  </div>
+
 <% end %>

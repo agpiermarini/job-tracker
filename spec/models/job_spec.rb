@@ -35,6 +35,21 @@ describe Job do
     end
   end
 
+  describe "instance methods" do
+    describe "#interest" do
+      it "returns level_of_interest translated to asterisks on a scale of 1 asterisk to 5" do
+        company = Company.create!(id: 1, name: "Dropbox")
+        job_1 = company.jobs.create!(title: "Job 1", description: "Job 1", level_of_interest: 1, city: "Job 1")
+        job_2 = company.jobs.create!(title: "Job 2", description: "Job 2", level_of_interest: 65, city: "Job 2")
+        job_3 = company.jobs.create!(title: "Job 3", description: "Job 3", level_of_interest: 90, city: "Job 3")
+
+        expect(job_1.interest).to eq("*")
+        expect(job_2.interest).to eq("****")
+        expect(job_3.interest).to eq("*****")
+      end
+    end
+  end
+
   describe "class methods" do
     describe ".by_category" do
       it "returns jobs matching a category id" do

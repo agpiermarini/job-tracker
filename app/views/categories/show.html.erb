@@ -1,14 +1,35 @@
 <h3>Category: <%= @category.title  %></h3>
 
-<% @companies.each do |company| %>
-  <div class="company-jobs">
-      <% company.jobs_by_category(@category.id).each do |job| %>
-      <ul>
-        <li><span class="title"><%= job.title %></span></li>
-        <li><span class="label">Company: </span><span class="info"><%= company.name %></span>
-        <li><span class="label">Description: </span><span class="info"><%= job.description %></span></li>
-        <li><span class="label">City: </span><span class="info"><%= job.city %></span></li>
-      </ul>
+
+<%= link_to "Create a New Category", new_category_path  %>
+
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Company</th>
+        <th><%= link_to "City", "/jobs?sort=city" %></th>
+        <th><%= link_to "Interest", "/jobs?sort=interest" %></th>
+        <th><%= %></th>
+      <tr>
+    </thead>
+    <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.title %></td>
+        <td><%= job.company.name %></td>
+        <td><%= job.description %></td>
+        <td><%= job.city %></td>
+        <td><%= job.interest %></td>
+        <td>
+          <div class="edit-delete">
+            <%= button_to "Edit", edit_category_path(@category), method: :get, class: "table-button" %>
+            <%= button_to "Delete", category_path(@category), method: :delete, class: "table-button" %>
+          </div>
+        </td>
+      </tr>
     <% end %>
-  <% end %>
+    <tbody>
+  </table>
 </div>
