@@ -19,6 +19,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    binding.pry
     @category = Category.find(params[:id])
     if params[:sort]
       @jobs = Job.by_category(params[:id], params[:sort])
