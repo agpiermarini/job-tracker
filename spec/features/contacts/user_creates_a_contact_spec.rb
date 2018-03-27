@@ -4,7 +4,7 @@ describe 'when user is on a company show page' do
   context 'clicking on add contact' do
     scenario 'should create a new contact on company page' do
       company = Company.create!(name: 'Test Company')
-      visit new_company_contact_path(company)
+      visit company_path(company)
 
       fill_in 'contact[name]', with: 'Tom'
       fill_in 'contact[role]', with: 'Manager'
