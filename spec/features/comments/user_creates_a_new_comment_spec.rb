@@ -29,7 +29,6 @@ describe 'User' do
       comment_3 = job.comments.create(content: "Comment 2")
 
       visit job_path(job)
-      save_and_open_page
 
       expect(page).to have_content(comment_1.content)
       expect(page).to have_content(comment_2.content)
