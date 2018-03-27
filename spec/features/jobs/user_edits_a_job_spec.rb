@@ -20,7 +20,7 @@ describe "User edits a job" do
     expect(current_path).to eq("/companies/#{company.id}/jobs/#{Job.last.id}")
     expect(page).to have_content("New Title")
     expect(page).to have_content("New Description")
-    expect(page).to have_content("1")
+    expect(page).to have_content("*")
     expect(page).to have_content("Colorado Springs")
   end
 end
