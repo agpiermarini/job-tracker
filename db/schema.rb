@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 20180327050230) do
     t.string "name"
     t.string "role"
     t.string "email"
-    t.bigint "companies_id"
+    t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["companies_id"], name: "index_contacts_on_companies_id"
+    t.index ["company_id"], name: "index_contacts_on_company_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20180327050230) do
     t.index ["company_id"], name: "index_jobs_on_company_id"
   end
 
-  add_foreign_key "contacts", "companies", column: "companies_id"
+  add_foreign_key "contacts", "companies"
   add_foreign_key "jobs", "categories"
   add_foreign_key "jobs", "companies"
 end
