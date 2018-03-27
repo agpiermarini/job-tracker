@@ -27,8 +27,7 @@
     </tr>
   </thead>
   <tbody class="table-collection">
-    <% @company.contacts do |contact| %>
-      <% binding.pry %>
+    <% @contacts.each do |contact| %>
       <tr class="table-item">
         <td><%= link_to "Edit", edit_company_path(@company) %></td>
         <td><%= link_to "Delete", company_path(@company), method: :delete, data: { confirm: "You are about to delete this contact."} %></td>
