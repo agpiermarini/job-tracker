@@ -20,7 +20,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @companies = Company.all
+    @jobs = Job.by_category(params[:id])
   end
 
   def edit

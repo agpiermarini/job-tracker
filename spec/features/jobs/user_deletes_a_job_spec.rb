@@ -3,7 +3,8 @@ require 'rails_helper'
 describe 'User deletes a job' do
   scenario 'a user can delete a job' do
     company = Company.create!(name: "ESPN")
-    job = company.jobs.create!(title: "Title 1", description: "This is Job 1", level_of_interest: 5, city: "Denver")
+    category = Category.create!(title: "Software")
+    job = company.jobs.create!(title: "Title 1", description: "This is Job 1", level_of_interest: 5, city: "Denver", category_id: category.id)
 
     visit company_job_path(company, job)
 
