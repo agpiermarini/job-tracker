@@ -1,19 +1,16 @@
 require 'rails_helper'
 
 describe 'User' do
-  describe 'and clicks link to delete category'
-    skip 'and it successfully deletes category' do
-    category_1 = Category.create!(title: "Category 1")
-    category_2 = Category.create!(title: "Category 2")
-    category_3 = Category.create!(title: "Category 3")
-    category_4 = Category.create!(title: "Category 4")
-    category_5 = Category.create!(title: "Category 5")
+  describe 'clicks link to delete category' do
+    it 'and it successfully deletes category' do
+      category_1 = Category.create!(id: 2, title: "Category 2")
 
-    visit categories_path
+      visit categories_path
 
-    # Scope in and click delete?
+      find(:xpath, ".//a[i[contains(@class, 'far fa-trash-alt')]]").click
 
-    expect(current_path).to eq(category_path)
-    expect(page).to_not have_content("Category 1")
+      expect(current_path).to eq(categories_path)
+      expect(page).to have_content("Category 2 deleted")
+    end
   end
 end
