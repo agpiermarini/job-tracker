@@ -4,6 +4,13 @@
 
 <div class="table">
   <table>
+    <thead class="table-collection">
+      <tr class="table-header">
+        <th>Category Name</th>
+        <th>Number of Jobs</th>
+        <th></th>
+      </tr>
+    </thead>
     <tbody>
     <% @categories.each do |category| %>
       <tr>
@@ -12,7 +19,7 @@
         <td>
           <div class="edit-delete">
             <%= button_to "Edit", edit_category_path(category), method: :get, class: "table-button" %>
-            <%= button_to "Delete", category_path(category), method: :delete, class: "table-button" %>
+            <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, category_path(category), method: :delete %>
           </div>
         </td>
       </tr>
