@@ -9,8 +9,8 @@
     <tr class="table-header">
       <th></th>
       <th></th>
-      <th>Role</th>
-      <th>Company</th>
+      <th><%= link_to "Role", controller: "jobs", sort: "role" %></th>
+      <th><%= link_to "Company", controller: "jobs", sort: "company" %></th>
       <th><%= link_to "Location", controller: "jobs", sort: "location" %></th>
       <th><%= link_to "Interest", controller: "jobs", sort: "interest" %></th>
     </tr>

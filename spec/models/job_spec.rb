@@ -134,7 +134,7 @@ describe Job do
         company_1 = Company.create!(id: 1, name: "Propbox")
         company_2 = Company.create!(id: 2, name: "Dropbox")
         company_3 = Company.create!(id: 3, name: "Cropbox")
-        Category.create!(id: 1, title: "Develper")
+        Category.create!(id: 1, title: "Developer")
         Category.create!(id: 2, title: "Test_Category_2")
         job_1 = company_1.jobs.create!(title: "Job 1", description: "A", level_of_interest: 5, city: "Albuquerque", category_id: 1)
         job_2 = company_2.jobs.create!(title: "Job 2", description: "B", level_of_interest: 4, city: "Boston", category_id: 1)
@@ -143,8 +143,8 @@ describe Job do
         job_5 = company_1.jobs.create!(title: "Job 5", description: "E", level_of_interest: 1, city: "Denver", category_id: 2)
 
         expect(Job.all.size).to eq(5)
-        expect(Job.filter_by({ category: 'Developer' }, "companies.name").size).to eq(3)
-        expect(Job.filter_by({ category: 'Developer' }, "companies.name").first).to eq(job_1)
+        expect(Job.filter_by({ title: 'Developer' }, "companies.name").size).to eq(3)
+        expect(Job.filter_by({ title: 'Developer' }, "companies.name").first).to eq(job_3)
       end
     end
   end

@@ -77,6 +77,8 @@ class JobsController < ApplicationController
       { city: params[:location] }
     elsif params[:category]
       { title: params[:category] }
+    elsif params[:sort]
+      { sort: params[:sort] }
     end
   end
 end
