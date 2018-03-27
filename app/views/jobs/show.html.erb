@@ -15,7 +15,7 @@ Level of Interest: <%= @job.interest %>
 
 <%= form_for [@job, @comment] do |f| %>
   <%= f.label :content, "Notes:" %>
-  <%= f.text_area :content, require: true %>
+  <%= f.text_area :content, required: true %>
   <%= f.submit "Save" %>
 <% end %>
 
@@ -24,8 +24,8 @@ Level of Interest: <%= @job.interest %>
   <table>
     <thead>
       <tr>
-        <th>Created</th>
-        <th>Comment</th>
+        <!-- <th>Created</th> -->
+        <!-- <th>Comment</th> -->
       <tr>
     </thead>
     <tbody>
