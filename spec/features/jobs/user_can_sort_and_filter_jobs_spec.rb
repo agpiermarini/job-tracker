@@ -33,28 +33,40 @@ describe 'User' do
   end
 
   context 'can sort jobs' do
-    scenario 'by location' do
+    scenario 'by location ascending' do
       visit jobs_path
       click_on 'Location'
 
+      within ('table tr:nth-child(1) td:nth-child(3)') do
+        expect(page).to have_content @job_four.title
+      end
     end
 
-    scenario 'by level of interest' do
+    scenario 'by level of interest descending' do
       visit jobs_path
-      click_on 'Location'
+      click_on 'Interest'
 
+      within ('table tr:nth-child(1) td:nth-child(3)') do
+        expect(page).to have_content @job_one.title
+      end
     end
 
-    scenario 'by role' do
+    scenario 'by role ascending' do
       visit jobs_path
-      click_on 'Location'
+      click_on 'Role'
 
+      within ('table tr:nth-child(1) td:nth-child(3)') do
+        expect(page).to have_content @job_one.title
+      end
     end
 
-    scenario 'by company' do
+    scenario 'by company ascending' do
       visit jobs_path
-      click_on 'Location'
+      click_on 'Company'
 
+      within ('table tr:nth-child(1) td:nth-child(3)') do
+        expect(page).to have_content @job_one.title
+      end
     end
   end
 end
