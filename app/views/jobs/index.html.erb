@@ -4,6 +4,27 @@
   All Jobs
 <% end %>
 
-<% @jobs.each do |job| %>
-  <ul><%= job.title %> at <%= job.company.name %></ul>
-<% end %>
+<table>
+  <thead class="table-collection">
+    <tr class="table-header">
+      <th></th>
+      <th></th>
+      <th><%= link_to "Role", controller: "jobs", sort: "role" %></th>
+      <th><%= link_to "Company", controller: "jobs", sort: "company" %></th>
+      <th><%= link_to "Location", controller: "jobs", sort: "location" %></th>
+      <th><%= link_to "Interest", controller: "jobs", sort: "interest" %></th>
+    </tr>
+  </thead>
+  <tbody class="table-collection">
+    <% @jobs.each do |job| %>
+      <tr class="table-item">
+        <td><%= link_to "Edit", edit_job_path(job) %></td>
+        <td><%= link_to "Delete", job_path(job), method: :delete, data: { confirm: "You are about to delete this job."} %></td>
+        <td><%= job.title %></td>
+        <td><%= job.company.name %></td>
+        <td><%= job.city %></td>
+        <td><%= job.interest %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

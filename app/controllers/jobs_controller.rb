@@ -3,6 +3,8 @@ class JobsController < ApplicationController
     if params[:company_id]
       @company = Company.find(params[:company_id])
       @jobs = @company.jobs
+    elsif query_params
+      @jobs = Job.filter_by(query_params)
     else
       @jobs = Job.all
     end
@@ -69,5 +71,15 @@ class JobsController < ApplicationController
 
   def company_params
     params[:company_id] ? params[:company_id] : job_params[:company_id]
+  end
+
+  def query_params
+    if params[:location]
+      { city: params[:location] }
+    elsif params[:category]
+      { title: params[:category] }
+    elsif params[:sort]
+      { sort: params[:sort] }
+    end
   end
 end
