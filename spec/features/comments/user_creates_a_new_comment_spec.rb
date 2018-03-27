@@ -14,7 +14,7 @@ describe 'User' do
       click_button "Save"
 
       expect(current_path).to eq("/jobs/#{Job.last.id}")
-      expect(page).to have_content("You added a new comment to #{job.title} at #{job.company.name}")
+      expect(page).to have_content("Comment added to #{job.title} at #{job.company.name}")
       expect(page).to have_content("This looks like a great position.")
     end
   end

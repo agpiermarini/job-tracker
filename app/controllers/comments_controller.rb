@@ -9,10 +9,10 @@ class CommentsController < ApplicationController
   def create
     @job = Job.find(params[:job_id])
     if @job.comments.create(comment_params)
-      flash[:success] = "You added a new comment to #{@job.title} at #{@job.company.name}"
+      flash[:success] = "Comment added to #{@job.title} at #{@job.company.name}"
       redirect_to job_path(params[:job_id])
     else
-      flash[:failure] = "Your comment was not saved"
+      flash[:failure] = "Comment was not saved"
       redirect_to job_path(params[:job_id])
     end
   end
