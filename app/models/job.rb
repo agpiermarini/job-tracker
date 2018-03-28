@@ -40,7 +40,7 @@ class Job < ApplicationRecord
   end
 
   def self.jobs_by_interest
-    all.each.reduce(Hash.new(0)) do |interest, job|
+    all.order(level_of_interest: :desc).reduce(Hash.new(0)) do |interest, job|
       interest[job.scale_of_five] += 1
       interest
     end
