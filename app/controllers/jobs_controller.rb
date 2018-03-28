@@ -56,8 +56,8 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    company = Company.find(params[:company_id])
     job = Job.find(params[:id])
+    company = job.company
     if job.destroy
       flash[:success] = "Deleted #{job.title} at #{company.name}"
     else
