@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root controller: 'homepage', action: :index
-
+  get '/dashboard', to: 'dashboard#show'
+  
   resources :companies do
     resources :jobs
     resources :contacts

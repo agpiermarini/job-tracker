@@ -6,8 +6,12 @@ class Job < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   def interest
-    stars = (level_of_interest.to_f/20).ceil
+    stars = scale_of_five
     Array.new(stars, "*").join
+  end
+
+  def scale_of_five
+    (level_of_interest.to_f/20).ceil
   end
 
   def self.by_category(id, sort = "companies.name")
@@ -33,5 +37,16 @@ class Job < ApplicationRecord
       when 'company'  then joins(:company).order('companies.name')
       else joins(:company).order('companies.name')
     end
+  end
+
+  def self.jobs_by_interest
+    all.each.reduce(Hash.new(0)) do |interest, job|
+      interest[job.scale_of_five] += 1
+      interest
+    end
+  end
+
+  def self.locations
+    group(:city).count
   end
 end

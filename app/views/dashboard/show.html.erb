@@ -1,0 +1,32 @@
+<h2>Job Tracker</h2>
+
+<div class='dash-summary'>
+  <div class='jobs-card'>
+    <p>Jobs by Interest</p>
+    <% @interest_scale.each do |interest, count| %>
+      <li>
+        <%= Array.new(interest, '*').join %>
+        <%= "(#{count} jobs)" %>
+      </li>
+    <% end %>
+  </div>
+
+  <div class='companies-card'>
+    <p>Top Companies by Interest</p>
+    <% @top_companies.each do |company| %>
+      <li>
+        <%= company.name %>
+        <%= "(average stars)" %>
+      </li>
+    <% end %>
+  </div>
+</div>
+
+<div class="dash-locations">
+  <% @locations.each do |location, count| %>
+    <li>
+      <%= link_to "#{location} jobs", controller: 'jobs', location: location  %>
+      <%= "(#{count} jobs)" %>
+    </li>
+  <% end %>
+</div>

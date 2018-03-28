@@ -150,13 +150,32 @@ section.header-section
       color: white
       padding: 0px 50px 0px 50px
 
+.dash-summary
+  display: flex
+  flex-direction: row
+  justify-content: space-around
+  margin-top: 5%
+
+  .jobs-card, .companies-card
+    flex: 1
+    min-width: 350px
+    max-width: 350px
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5)
+    margin: 0.375em
+    position: relative
+    text-align: center
+
+.dash-locations
+  text-align: center
+  margin: 5%
+
 div#job-show
   display: flex
   justify-content: center
   flex-direction: column
 
-ul
-  list-style-type: none
+  ul
+    list-style-type: none
 
 #notice
   color: black
