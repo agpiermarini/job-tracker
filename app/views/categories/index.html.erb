@@ -7,7 +7,7 @@
   </div>
 </section>
 
-<div class="table">
+<div class="table table-hover">
   <table>
     <thead class="table-collection">
       <tr class="table-header">
@@ -16,9 +16,9 @@
         <th></th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="table-collection">
     <% @categories.each do |category| %>
-      <tr>
+      <tr class="table-item">
         <td><%= link_to "#{category.title}" , category_path(category), class: "table-link" %></td>
         <td><%= link_to "#{category.jobs.count}", category_path(category), class: "table-link" %></td>
         <td>

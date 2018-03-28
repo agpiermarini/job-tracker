@@ -30,19 +30,19 @@
     </li>
 
 <li>
-  <div class="table">
+  <div class="table table-hover">
     <table>
-      <thead class="table-collection">
-        <tr class="table-header">
+      <thead>
+        <tr>
           <th>Contact Name</th>
           <th>Role</th>
           <th>Email</th>
           <th></th>
         </tr>
       </thead>
-      <tbody class="table-collection">
+      <tbody>
         <% @contacts.each do |contact| %>
-          <tr class="table-item">
+          <tr>
             <td><%= contact.name %></td>
             <td><%= contact.role %></td>
             <td><%= mail_to contact.email %></td>
