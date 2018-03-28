@@ -45,12 +45,12 @@ describe 'User' do
       visit dashboard_path
       click_on 'Denver jobs'
 
-      expect(current_path).to eq('/jobs?location=Denver')
+      expect(current_path).to eq('/jobs')
 
       visit dashboard_path
       click_on 'Chicago jobs'
 
-      expect(current_path).to eq('/jobs?location=Chicago')
+      expect(current_path).to eq('/jobs')
     end
   end
 end

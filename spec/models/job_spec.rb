@@ -161,7 +161,7 @@ describe Job do
         job_4 = company_1.jobs.create!(title: "Job 4", description: "D", level_of_interest: 75, city: "Denver", category_id: 2)
         job_5 = company_1.jobs.create!(title: "Job 5", description: "E", level_of_interest: 90, city: "Denver", category_id: 2)
 
-        expected = { 5 => 1, 4 => 1, 3 => 2, 2 => 1 }
+        expected = { 4 => 1, 3 => 1, 2 => 2, 1 => 1 }
 
         expect(Job.jobs_by_interest).to eq expected
       end
