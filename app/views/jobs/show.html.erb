@@ -8,21 +8,32 @@
   </div>
 </section>
 
-Description: <%= @job.description %>
-<br>
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>City</th>
+        <th>Level of Interest</th>
+      <tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @job.description %></td>
+        <td><%= @job.city %></td>
+        <td><%= @job.interest %></td>
+      </tr>
+    <tbody>
+  </table>
+</div>
 
-City: <%= @job.city %>
-<br>
-
-Level of Interest: <%= @job.interest %>
-<br>
-
-<%= form_for [@job, @comment] do |f| %>
-  <%= f.label :content, "Notes:" %>
-  <%= f.text_area :content, required: true %>
-  <%= f.submit "Save" %>
-<% end %>
-
+<main>
+  <%= form_for [@job, @comment] do |f| %>
+    <%= f.label :content, "Notes:" %>
+    <%= f.text_area :content, required: true %>
+    <%= f.submit "Save" %>
+  <% end %>
+</main>
 
 <div class="table">
   <table>
