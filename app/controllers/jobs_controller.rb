@@ -11,21 +11,21 @@ class JobsController < ApplicationController
   end
 
   def new
+    @job = Job.new
+    @categories = Category.all
     if params[:company_id]
       @company = Company.find(params[:company_id])
     else
       @companies = Company.all
     end
-    @job = Job.new()
-    @categories = Category.all
   end
 
   def create
-    @company = Company.find(company_params)
-    @job = @company.jobs.new(job_params)
-    if @job.save
-      flash[:success] = "Created #{@job.title} at #{@company.name}"
-      redirect_to company_job_path(@company, @job)
+    company = Company.find(company_params)
+    job = company.jobs.new(job_params)
+    if job.save
+      flash[:success] = "Created #{job.title} at #{company.name}"
+      redirect_to company_job_path(company, job)
     else
       render :new
     end
@@ -43,14 +43,13 @@ class JobsController < ApplicationController
   end
 
   def update
-    @company = Company.find(company_params)
-    @job = Job.find(params[:id])
-    @job.update(job_params)
-    if @job.save
-      redirect_to company_job_path(@company, @job)
-      flash[:success] = "Updated #{@job.title} at #{@company.name}"
+    company = Company.find(company_params)
+    job = Job.find(params[:id])
+    if job.update(job_params)
+      redirect_to company_job_path(company, job)
+      flash[:success] = "Updated #{job.title} at #{company.name}"
     else
-      flash[:alert] = "Failed to update #{@job.title} at #{@company.name}"
+      flash[:alert] = "Failed to update #{job.title} at #{company.name}"
       render :edit
     end
   end
