@@ -10,7 +10,7 @@ describe 'User creates a new category' do
 
     expect(current_path).to eq("/categories/#{Category.last.id}")
     expect(page).to have_content("Created the #{Category.last.title} Category")
-    expect(page).to have_content("Category: #{Category.last.title}")
+    expect(page).to have_content("#{Category.last.title} Jobs")
   end
 
 
