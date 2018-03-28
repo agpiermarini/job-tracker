@@ -15,15 +15,15 @@
 
   <%= render partial: "layouts/nav" %>
 
-  <!-- <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: name %>
-  <% end %> -->
-<% flash.each do |key, value| %>
+  <div id="notice">
+    <% flash.each do |key, value| %>
       <div class="<%= flash_class(key) %>">
-            <%= value %>
+        <%= value %>
       </div>
-<% end %>
-<%= yield %>
+    <% end %>
+  </div>
+
+  <%= yield %>
 
 </body>
 </html>
