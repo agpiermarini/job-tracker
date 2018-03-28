@@ -33,7 +33,7 @@ describe 'User visits categories index' do
 
     visit categories_path
 
-    click_button "Edit"
+    find(:xpath, ".//a[i[contains(@class, 'far fa-edit')]]").click
 
     fill_in "category[title]", with: "New Category Name"
     click_button "Update"
