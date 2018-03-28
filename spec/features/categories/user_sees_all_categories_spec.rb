@@ -25,7 +25,7 @@ describe 'User visits categories index' do
 
     click_link "Category 1"
 
-    expect(current_path).to eq(category_path(category_1))
+    expect(current_path).to eq(jobs_path)
   end
 
   scenario 'a user can edit each category' do

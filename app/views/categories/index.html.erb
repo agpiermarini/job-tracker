@@ -19,8 +19,8 @@
     <tbody class="table-collection">
     <% @categories.each do |category| %>
       <tr class="table-item">
-        <td><%= link_to "#{category.title}" , category_path(category), class: "table-link" %></td>
-        <td><%= link_to "#{category.jobs.count}", category_path(category), class: "table-link" %></td>
+        <td><%= link_to "#{category.title}", class: "table-link", controller: 'jobs', category: category.title %></td>
+        <td><%= link_to "#{category.jobs.count}", class: "table-link", controller: 'jobs', category: category.title %></td>
         <td>
           <div class="edit-delete">
             <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_category_path(category) %>
