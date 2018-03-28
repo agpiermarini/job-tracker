@@ -24,7 +24,7 @@ class JobsController < ApplicationController
     @company = Company.find(company_params)
     @job = @company.jobs.new(job_params)
     if @job.save
-      flash[:success] = "You created #{@job.title} at #{@company.name}"
+      flash[:success] = "Created #{@job.title} at #{@company.name}"
       redirect_to company_job_path(@company, @job)
     else
       render :new
@@ -47,7 +47,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.update(job_params)
     if @job.save
-      flash[:success] = "#{@job.title} at #{@company.name} updated"
+      flash[:success] = "Updated #{@job.title} at #{@company.name}"
       redirect_to company_job_path(@company, @job)
     else
       render :edit
@@ -58,7 +58,7 @@ class JobsController < ApplicationController
     company = Company.find(params[:company_id])
     job = Job.find(params[:id])
     job.destroy
-    flash[:success] = "#{job.title} was successfully deleted!"
+    flash[:success] = "Deleted #{job.title}"
 
     redirect_to company_jobs_path(company)
   end

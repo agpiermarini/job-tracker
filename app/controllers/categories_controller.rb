@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash[:success] = "You created the #{@category.title} Category"
+      flash[:success] = "Created the #{@category.title} Category"
       redirect_to category_path(@category)
     else
       flash[:success] = "Failed to create category"
@@ -31,7 +31,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @category.update(category_params)
     if @category.save
-      flash[:success] = "Category title changed to #{@category.title}"
+      flash[:success] = "Updated category title to #{@category.title}"
       redirect_to categories_path
     else
       flash[:success] = "Failed to update category"
@@ -42,7 +42,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     if @category.destroy
-      flash[:success] = "#{@category.title} deleted"
+      flash[:success] = "Deleted #{@category.title} deleted"
       redirect_to categories_path
     else
       flash[:success] = "Failed to delete category"
