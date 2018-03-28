@@ -7,24 +7,23 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @job = Job.find(params[:job_id])
-    @comment = @job.comments.new(comment_params)
-    if @comment.save
-      flash[:success] = "Comment added to #{@job.title} at #{@job.company.name}"
+    job = Job.find(params[:job_id])
+    comment = job.comments.new(comment_params)
+    if comment.save
+      flash[:success] = "Comment added to #{job.title} at #{job.company.name}"
       redirect_to job_path(params[:job_id])
     else
-      flash[:failure] = "Failed to save comment"
+      flash[:alert] = "Failed to save comment"
       redirect_to job_path(params[:job_id])
     end
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-    if @comment.destroy
+    if Comment.destroy(params[:id])
       flash[:success] = "Comment deleted"
       redirect_to job_path(params[:job_id])
     else
-      flash[:failure] = "Failed to delete comment"
+      flash[:alert] = "Failed to delete comment"
       redirect_to job_path(params[:job_id])
     end
   end

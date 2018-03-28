@@ -40,13 +40,11 @@ main
 div.table
   .table-responsive
   display: flex
-  justify-content: flex-start
+  justify-content: center
   padding-top: 50px
-
-  table
-    .table
-    .table-striped
-    justify-content: center
+  max-width: 90%
+  margin-left: auto
+  margin-right: auto
 
   tr
     .active
@@ -54,7 +52,8 @@ div.table
   td
     justify-content: flex-start
     align-content: center
-    width: 200px
+    width: auto
+
 
 body
   height: 100vh
@@ -144,23 +143,16 @@ section.header-section
       color: white
       padding: 0px 50px 0px 50px
 
+div#job-show
+  display: flex
+  justify-content: center
+  flex-direction: column
 
-// .header-section ul
-//   display: flex
-//   flex-direction: column
-//   justify-content: center
-//
-//
-// .header-section ul h6
-//   display: flex
-//   justify-content: center
-//   font-size: 50px
-//   margin: 40px
-//   font-weight: bold
-//
-//
-// .header-section .buttons-1
-//   display: inline-flex
-//   flex-direction: row
-//   justify-content: space-between
-//   margin: 0% 40%
+ul
+  list-style-type: none
+
+#notice
+  color: black
+  font-weight: bold
+  text-align: center
+  font-size: 20px

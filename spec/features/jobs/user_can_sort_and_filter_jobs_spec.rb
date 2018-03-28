@@ -37,7 +37,7 @@ describe 'User' do
       visit jobs_path
       click_on 'Location'
 
-      within ('table tr:nth-child(1) td:nth-child(3)') do
+      within ('table tr:nth-child(1) td:nth-child(1)') do
         expect(page).to have_content @job_four.title
       end
     end
@@ -46,7 +46,7 @@ describe 'User' do
       visit jobs_path
       click_on 'Interest'
 
-      within ('table tr:nth-child(1) td:nth-child(3)') do
+      within ('table tr:nth-child(1) td:nth-child(1)') do
         expect(page).to have_content @job_one.title
       end
     end
@@ -55,7 +55,7 @@ describe 'User' do
       visit jobs_path
       click_on 'Role'
 
-      within ('table tr:nth-child(1) td:nth-child(3)') do
+      within ('table tr:nth-child(1) td:nth-child(1)') do
         expect(page).to have_content @job_one.title
       end
     end
@@ -64,7 +64,7 @@ describe 'User' do
       visit jobs_path
       click_on 'Company'
 
-      within ('table tr:nth-child(1) td:nth-child(3)') do
+      within ('table tr:nth-child(1) td:nth-child(1)') do
         expect(page).to have_content @job_one.title
       end
     end

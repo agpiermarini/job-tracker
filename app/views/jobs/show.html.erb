@@ -1,6 +1,6 @@
 <section class="header-section">
   <div class="header-title">
-    <h6><%= @job.title %> at <%= link_to @job.company.name, company_path(@job.company) %><h6>
+    <h6><%= @job.title %> Position at <%= link_to @job.company.name, company_path(@job.company) %><h6>
   </div>
   <div class="header-buttons">
     <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_company_job_path(@job.company, @job) %>
