@@ -3,7 +3,7 @@ class Job < ApplicationRecord
   belongs_to :company
   belongs_to :category
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
 
   def interest

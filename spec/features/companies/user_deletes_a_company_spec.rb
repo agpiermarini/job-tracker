@@ -9,6 +9,6 @@ describe "User deletes existing company" do
       click_link "Delete"
     end
 
-    expect(page).to have_content("ESPN was successfully deleted!")
+    expect(page).to have_content("Deleted ESPN")
   end
 end

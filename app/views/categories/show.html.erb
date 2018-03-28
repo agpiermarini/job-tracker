@@ -24,8 +24,8 @@
         <td><%= job.interest %></td>
         <td>
           <div class="edit-delete">
-            <%= button_to "Edit", edit_category_path(@category), method: :get, class: "table-button" %>
-            <%= button_to "Delete", category_path(@category), method: :delete, class: "table-button" %>
+            <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_category_path(@category), method: :get %>
+            <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, category_path(@category), method: :delete %>
           </div>
         </td>
       </tr>
