@@ -33,3 +33,49 @@ div.table
     justify-content: flex-start
     align-content: center
     width: 200px
+
+body
+  height: 100vh
+
+
+body#background
+  background:
+    image: asset-url("background.jpg")
+    size: cover
+    repeat: no-repeat
+    position: center
+  display: flex
+  justify-content: space-around
+  align-content: space-around
+  font-family: 'Audiowide'
+
+div#logo-links
+    display: flex
+    justify-content: center
+    align-self: center
+    flex-flow: column nowrap
+    background-color: transparentize(#5c5d67, .1)
+    position: relative
+    width: 50%
+    height: 50%
+
+div#logo
+  display: flex
+  justify-content: center
+  align-content: center
+  flex-direction: row
+  padding-left: 10px
+
+  h3
+    font-size: 70px
+    color: white
+
+div#links
+  display: flex
+  justify-content: space-around
+  flex-flow: row nowrap
+  margin-top: 10%
+
+  a
+    color: white
+    font-size: 25px
