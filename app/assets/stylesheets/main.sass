@@ -7,6 +7,7 @@ main
 
   form
     .form-group
+    width: 50%
     display: flex
     flex-direction: column
     justify-content: space-around
@@ -17,6 +18,23 @@ main
 
     label
       font-weight: bold
+
+    .category-select
+      display: flex
+      flex-direction: row
+      margin-top: 13px
+
+      .category-dropdown
+        flex-grow: 15
+        margin-right: 2%
+
+      .category-link
+        flex-grow: 1
+
+    .cancel-submit
+      margin-top: 3%
+      display: flex
+      justify-content: space-around
 
 div.table
   .table-responsive
