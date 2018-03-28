@@ -8,12 +8,12 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(company_params)
-    if @company.save
-      flash[:success] = "Created a company named #{@company.name}"
-      redirect_to company_path(@company)
+    company = Company.new(company_params)
+    if company.save
+      flash[:success] = "Created a company named #{company.name}"
+      redirect_to company_path(company)
     else
-      flash[:failure] = "Failed to create a new company"
+      flash[:alert] = "Failed to create a new company"
       render :new
     end
   end
@@ -29,13 +29,12 @@ class CompaniesController < ApplicationController
   end
 
   def update
-    @company = Company.find(params[:id])
-    @company.update(company_params)
-    if @company.save
-      flash[:success] = "Updated #{@company.name}"
-      redirect_to company_path(@company)
+    company = Company.find(params[:id])
+    if company.update(company_params)
+      flash[:success] = "Updated #{company.name}"
+      redirect_to company_path(company)
     else
-      flash[:failure] = "Failed to update #{@company.name}"
+      flash[:alert] = "Failed to update #{company.name}"
       render :edit
     end
   end
@@ -45,7 +44,7 @@ class CompaniesController < ApplicationController
     if company.destroy
       flash[:success] = "Deleted #{company.name}"
     else
-      flash[:failure] = "Failed to delete #{company.name}"
+      flash[:alert] = "Failed to delete #{company.name}"
     end
     redirect_to companies_path
   end

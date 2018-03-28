@@ -8,7 +8,7 @@ describe 'User deletes a job' do
 
     visit company_job_path(company, job)
 
-    click_link "Delete"
+    find(:xpath, ".//a[i[contains(@class, 'fas fa-trash-alt')]]").click
 
     expect(page).to have_content("Deleted #{job.title}")
     expect(current_path).to eq(company_jobs_path(company))

@@ -1,40 +1,56 @@
-<div class="company-header">
-  <h1><%= @company.name %></h1>
-  <%= link_to "Edit", edit_company_path(@company) %>
-  <%= link_to "Delete", company_path(@company), method: :delete, data: { confirm: "You are about to delete this company."} %>
-</div>
+<section class="header-section">
+  <div class="header-title">
+    <h6><%= @company.name %><h6>
+  </div>
+  <div class="header-buttons">
+    <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_company_path(@company) %>
+    <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, company_path(@company), method: :delete, data: { confirm: "You are about to delete this job."} %>
+  </div>
+</section>
 
-<div class="show-form">
-  <%= form_for [@company, @contact] do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :role %>
-    <%= f.text_field :role %>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-    <%= f.submit :Save %>
-  <% end %>
-</div>
-
-<table>
-  <thead class="table-collection">
-    <tr class="table-header">
-      <th></th>
-      <th></th>
-      <th>Contact Name</th>
-      <th>Role</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody class="table-collection">
-    <% @contacts.each do |contact| %>
-      <tr class="table-item">
-        <td><%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_company_contact_path(@company) %></td>
-        <td><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, company_contact_path(@company, contact), method: :delete, data: { confirm: "You are about to delete this contact."} %></td>
-        <td><%= contact.name %></td>
-        <td><%= contact.role %></td>
-        <td><%= mail_to contact.email %></td>
-      </tr>
+<div id="job-show">
+  <ul>
+    <li>
+  <main>
+    <%= form_for [@company, @contact] do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.label :role %>
+      <%= f.text_field :role %>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+      <%= f.submit :Save %>
     <% end %>
-  </tbody>
-</table>
+  <main>
+  </li>
+
+<li>
+  <div class="table">
+    <table>
+      <thead class="table-collection">
+        <tr class="table-header">
+          <th>Contact Name</th>
+          <th>Role</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="table-collection">
+        <% @contacts.each do |contact| %>
+          <tr class="table-item">
+            <td><%= contact.name %></td>
+            <td><%= contact.role %></td>
+            <td><%= mail_to contact.email %></td>
+            <td>
+            <div class="edit-delete">
+              <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_company_contact_path(@company) %>
+              <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, company_contact_path(@company, contact), method: :delete, data: { confirm: "You are about to delete this contact."} %>
+            <div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <div>
+  </li>
+</div>
