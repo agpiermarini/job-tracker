@@ -1,8 +1,14 @@
-<% if @company %>
-  Jobs at <strong><%= @company.name %></strong>
-<% else %>
-  All Jobs
-<% end %>
+<section class="header-section">
+  <div class="header-title">
+    <h6>
+      <% if @company %>
+        Jobs at <%= @company.name %>
+      <% else %>
+        All Jobs
+      <% end %>
+    </h6>
+  </div>
+</section>
 
 <table>
   <thead class="table-collection">
