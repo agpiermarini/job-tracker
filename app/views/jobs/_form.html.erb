@@ -13,12 +13,14 @@
     <%= f.label :city %>
     <%= f.text_field :city %>
 
-    <%= f.collection_select(:category_id, @categories, :id, :title, {prompt: "Select a Category"}, {required: true})%>
-    <%= link_to "Create a New Category", new_category_path %>
+    <div class="category-select">
+      <%= f.collection_select(:category_id, @categories, :id, :title, {prompt: "Select a Category"}, {required: true, class: 'category-dropdown'})  %>
+      <%= link_to "Create a New Category", new_category_path, class: 'category-link' %>
+    </div>
 
     <div class="cancel-submit">
-      <%= button_to "Cancel", jobs_path, class: 'btn btn-outline-warning' %>
-      <%= f.submit class: 'btn btn-outline-success' %>
+      <%= button_to "Cancel", jobs_path, class: 'btn btn-outline-light' %>
+      <%= f.submit class: 'btn btn-outline-light' %>
     </div>
   <% end %>
 <% else %>
@@ -44,8 +46,8 @@
     </div>
 
     <div class="cancel-submit">
-      <%= button_to "Cancel", jobs_path, class: 'btn btn-outline-warning' %>
-      <%= f.submit class: 'btn btn-outline-success' %>
+      <%= button_to "Cancel", jobs_path, class: 'btn btn-outline-light' %>
+      <%= f.submit class: 'btn btn-outline-light' %>
     </div>
   <% end %>
 <% end %>
