@@ -6,7 +6,7 @@ describe 'User creates a new category' do
 
     fill_in 'category[title]', with: "Software"
 
-    click_button "Create"
+    click_on "Create Category"
 
     expect(current_path).to eq("/categories/#{Category.last.id}")
     expect(page).to have_content("Created the #{Category.last.title} Category")
@@ -21,7 +21,7 @@ describe 'User creates a new category' do
 
       fill_in 'category[title]', with: "Software"
 
-      click_button "Create"
+      click_on "Create Category"
 
       expect(current_path).to eq(new_category_path)
       expect(page).to have_content("Failed to create category")

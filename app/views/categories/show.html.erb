@@ -29,7 +29,7 @@
         <td>
           <div class="edit-delete">
             <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_category_path(@category) %>
-            <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, category_path(@category), method: :delete, , data: { confirm: "You are about to delete this category and all of its jobs."}  %>
+            <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, category_path(@category), method: :delete, data: { confirm: "You are about to delete this category and all of its jobs."}  %>
           </div>
         </td>
       </tr>
