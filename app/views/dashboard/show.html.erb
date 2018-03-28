@@ -5,8 +5,8 @@
     <p>Jobs by Interest</p>
     <% @interest_scale.each do |interest, count| %>
       <li>
-        <%= "#{interest} stars" %>
-        <%= "(#{count} jobs)" %>
+        <%= "#{interest} Star Jobs:" %>
+        <%= count %>
       </li>
     <% end %>
   </div>
