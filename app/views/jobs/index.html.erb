@@ -1,19 +1,27 @@
 <section class="header-section">
-  <div class="header-title">
-    <h6>
-      <% if @company %>
+  <% if @company %>
+    <div class="header-title">
+      <h6>
         Jobs at <%= @company.name %>
-      <% else %>
+      <h6>
+    </div>
+    <div class="header-links">
+      <%= link_to '<i class="far fa-plus-square"></i> Add New Job'.html_safe, new_company_job_path  %>
+      <%= link_to '<i class="far fa-plus-square"></i> Add New Contact'.html_safe, company_path(@company) %>
+    </div>
+    <% else %>
+    <div class="header-title">
+      <h6>
         All Jobs
-      <% end %>
-    </h6>
-  </div>
-  <div class="header-links">
-    <%= link_to '<i class="far fa-plus-square"></i> Add New Job'.html_safe, new_job_path  %>
-  </div>
+      <h6>
+    </div>
+    <div class="header-links">
+      <%= link_to '<i class="far fa-plus-square"></i> Add New Company'.html_safe, new_job_path  %>
+    </div>
+    <% end %>
 </section>
 
-<div class="table">
+<div class="table table-hover">
   <table>
     <thead class="table-collection">
       <tr class="table-header">
@@ -28,7 +36,7 @@
       <% @jobs.each do |job| %>
         <tr class="table-item">
           <td><%= link_to "#{job.title}", job_path(job) %></td>
-          <td><%= link_to "#{job.company.name}", company_path(job.company) %></td>
+          <td><%= link_to "#{job.company.name}", company_jobs_path(job.company) %></td>
           <td><%= job.city %></td>
           <td><%= job.interest %></td>
           <td>

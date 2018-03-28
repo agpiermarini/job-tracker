@@ -1,18 +1,12 @@
-<section class="header-section">
-  <div class="header-title">
-    <h6>
-      Job Tracker
-    </h6>
-  </div>
-</section>
+<h2>Job Tracker</h2>
 
 <div class='dash-summary'>
   <div class='jobs-card'>
     <p>Jobs by Interest</p>
     <% @interest_scale.each do |interest, count| %>
       <li>
-        <%= "#{interest} stars" %>
-        <%= "(#{count} jobs)" %>
+        <%= "#{interest}" Star Jobs: %>
+        <%= "#{count}" %>
       </li>
     <% end %>
   </div>
