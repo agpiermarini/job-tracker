@@ -1,8 +1,12 @@
-<%= @job.title %> at <%= link_to @job.company.name, company_path(@job.company) %>
-<br>
-<%= link_to "Edit", edit_company_job_path(@job.company, @job) %>
-<%= link_to "Delete", company_job_path(@job.company, @job), method: :delete, data: { confirm: "You are about to delete this job."} %>
-<br>
+<section class="header-section">
+  <div class="header-title">
+    <h6><%= @job.title %> at <%= link_to @job.company.name, company_path(@job.company) %><h6>
+  </div>
+  <div class="header-links">
+    <%= link_to "Edit", edit_company_job_path(@job.company, @job) %>
+    <%= link_to "Delete", company_job_path(@job.company, @job), method: :delete, data: { confirm: "You are about to delete this job."} %>
+  </div>
+</section>
 
 Description: <%= @job.description %>
 <br>
