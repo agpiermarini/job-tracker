@@ -33,6 +33,7 @@ class Job < ApplicationRecord
       when 'role'     then order('title')
       when 'interest' then order('level_of_interest DESC')
       when 'location' then order('city ASC')
+      when 'city'     then order('city ASC')
       when 'company'  then joins(:company).order('companies.name')
       else joins(:company).order('companies.name')
     end

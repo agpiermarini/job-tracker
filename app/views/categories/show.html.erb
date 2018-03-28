@@ -3,7 +3,7 @@
     <h6><%= @category.title  %> Jobs<h6>
   </div>
   <div class="header-links">
-    <%= link_to '<i class="far fa-plus-square"></i> New Category'.html_safe, new_category_path  %>
+    <%= link_to '<i class="far fa-plus-square"></i> Add New Category'.html_safe, new_category_path  %>
   </div>
 </section>
 
@@ -13,22 +13,22 @@
       <tr>
         <th>Title</th>
         <th>Company</th>
-        <th><%= link_to "City", "/jobs?sort=city" %></th>
-        <th><%= link_to "Interest", "/jobs?sort=interest" %></th>
-        <th><%= %></th>
+        <th>City</th>
+        <th>Interest</th>
+        <th></th>
       <tr>
     </thead>
     <tbody>
     <% @jobs.each do |job| %>
       <tr>
-        <td><%= job.title %></td>
-        <td><%= job.company.name %></td>
+        <td><%= link_to "#{job.title}", job_path(job) %></td>
+        <td><%= link_to "#{job.company.name}", company_path(job.company) %></td>
         <td><%= job.description %></td>
         <td><%= job.city %></td>
         <td><%= job.interest %></td>
         <td>
           <div class="edit-delete">
-            <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_category_path(@category), method: :get %>
+            <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_category_path(@category) %>
             <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, category_path(@category), method: :delete %>
           </div>
         </td>

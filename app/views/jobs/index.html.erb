@@ -10,27 +10,32 @@
   </div>
 </section>
 
-<table>
-  <thead class="table-collection">
-    <tr class="table-header">
-      <th></th>
-      <th></th>
-      <th><%= link_to "Role", controller: "jobs", sort: "role" %></th>
-      <th><%= link_to "Company", controller: "jobs", sort: "company" %></th>
-      <th><%= link_to "Location", controller: "jobs", sort: "location" %></th>
-      <th><%= link_to "Interest", controller: "jobs", sort: "interest" %></th>
-    </tr>
-  </thead>
-  <tbody class="table-collection">
-    <% @jobs.each do |job| %>
-      <tr class="table-item">
-        <td><%= link_to "Edit", edit_job_path(job) %></td>
-        <td><%= link_to "Delete", job_path(job), method: :delete, data: { confirm: "You are about to delete this job."} %></td>
-        <td><%= job.title %></td>
-        <td><%= job.company.name %></td>
-        <td><%= job.city %></td>
-        <td><%= job.interest %></td>
+<div class="table">
+  <table>
+    <thead class="table-collection">
+      <tr class="table-header">
+        <th><%= link_to "Role", controller: "jobs", sort: "role" %></th>
+        <th><%= link_to "Company", controller: "jobs", sort: "company" %></th>
+        <th><%= link_to "Location", controller: "jobs", sort: "location" %></th>
+        <th><%= link_to "Interest", controller: "jobs", sort: "interest" %></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody class="table-collection">
+      <% @jobs.each do |job| %>
+        <tr class="table-item">
+          <td><%= link_to "#{job.title}", job_path(job) %></td>
+          <td><%= link_to "#{job.company.name}", company_path(job.company) %></td>
+          <td><%= job.city %></td>
+          <td><%= job.interest %></td>
+          <td>
+            <div class="edit-delete">
+              <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_job_path(job) %>
+              <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, job_path(job), method: :delete, data: { confirm: "You are about to delete this job."} %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
