@@ -89,9 +89,10 @@ div#logo-links
     height: 50%
 
 div#logo
+  flex: 3
   display: flex
   justify-content: center
-  align-content: center
+  align-items: center
   flex-direction: row
   padding-left: 10px
 
@@ -100,14 +101,43 @@ div#logo
     color: white
 
 div#links
+  flex: 2
   display: flex
   justify-content: space-around
+  align-items: center
+  text-align: center
   flex-flow: row nowrap
-  margin-top: 10%
 
   a
     color: white
     font-size: 25px
+
+  div#link1
+    flex: 1
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: transparentize(#DE6E4B, .2)
+    height: 100%
+
+  div#link2
+    flex: 1
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: transparentize(#798086, .2)
+    height: 100%
+
+
+  div#link3
+    flex: 1
+    flex: 1
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: transparentize(#114B5F, .2)
+    height: 100%
+
 
 
 section.header-section
