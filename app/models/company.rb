@@ -6,4 +6,12 @@ class Company < ApplicationRecord
   def jobs_by_category(category_id)
     jobs.where(category_id: category_id)
   end
+
+  def self.top_companies
+    select('companies.*, avg(jobs.level_of_interest) AS average_interest')
+      .joins(:jobs)
+      .group(:id)
+      .order('average_interest DESC')
+      .first(3)
+  end
 end

@@ -29,9 +29,6 @@ describe 'User' do
 
       expect(page).to have_content(@company_one.name)
       expect(page).to have_content(@company_two.name)
-      within '.first-place' do
-        expect(page).to have_content(@company_one.name)
-      end
     end
   end
 

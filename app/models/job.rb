@@ -6,12 +6,12 @@ class Job < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   def interest
-    stars = scale_of_five(level_of_interest)
+    stars = scale_of_five
     Array.new(stars, "*").join
   end
 
-  def scale_of_five(interest)
-    (interest.to_f/20).ceil
+  def scale_of_five
+    (level_of_interest.to_f/20).ceil
   end
 
   def self.by_category(id, sort = "companies.name")
@@ -39,8 +39,13 @@ class Job < ApplicationRecord
   end
 
   def self.jobs_by_interest
-    interest = select('jobs.*, round(level_of_interest/20, 2) AS interest').group(:interest).count
-    interest
-    binding.pry
+    all.each.reduce(Hash.new(0)) do |interest, job|
+      interest[job.scale_of_five] += 1
+      interest
+    end
+  end
+
+  def self.locations
+    group(:city).count
   end
 end
