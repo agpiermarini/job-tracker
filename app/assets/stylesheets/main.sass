@@ -1,5 +1,6 @@
 nav.navbar
-  background-color: black
+  background-color: transparentize(#5c5d67, .05)
+  font-family: 'Audiowide'
 
 main
   display: flex
@@ -7,6 +8,7 @@ main
 
   form
     .form-group
+    width: 50%
     display: flex
     flex-direction: column
     justify-content: space-around
@@ -17,6 +19,23 @@ main
 
     label
       font-weight: bold
+
+    .category-select
+      display: flex
+      flex-direction: row
+      margin-top: 13px
+
+      .category-dropdown
+        flex-grow: 15
+        margin-right: 2%
+
+      .category-link
+        flex-grow: 1
+
+    .cancel-submit
+      margin-top: 3%
+      display: flex
+      justify-content: space-around
 
 div.table
   .table-responsive
@@ -82,3 +101,66 @@ div#links
   a
     color: white
     font-size: 25px
+
+
+section.header-section
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  background-color: transparentize(#819595, .1)
+  background-position: center center
+  background-size: cover
+  height: 200px
+
+  .header-title
+    h6
+      font-size: 60px
+      color: white
+      a
+        color: white
+
+  .header-buttons
+    display: flex
+    align-items: space-between
+    justify-content: space-around
+    align-items: center
+    flex-flow: row nowrap
+
+    a
+      font-size: 40px
+      color: white
+      padding: 0px 50px 0px 50px
+
+  .header-links
+    display: flex
+    align-items: space-between
+    justify-content: space-around
+    align-items: center
+    flex-flow: row nowrap
+
+    a
+      font-size: 25px
+      color: white
+      padding: 0px 50px 0px 50px
+
+
+// .header-section ul
+//   display: flex
+//   flex-direction: column
+//   justify-content: center
+//
+//
+// .header-section ul h6
+//   display: flex
+//   justify-content: center
+//   font-size: 50px
+//   margin: 40px
+//   font-weight: bold
+//
+//
+// .header-section .buttons-1
+//   display: inline-flex
+//   flex-direction: row
+//   justify-content: space-between
+//   margin: 0% 40%

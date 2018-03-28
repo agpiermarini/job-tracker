@@ -1,6 +1,11 @@
-<h2>Job Categories</h2>
-
-<%= link_to "Create a New Category", new_category_path  %>
+<section class="header-section">
+  <div class="header-title">
+    <h6>All Categories<h6>
+  </div>
+  <div class="header-links">
+    <%= link_to '<i class="far fa-plus-square"></i> New Category'.html_safe, new_category_path  %>
+  </div>
+</section>
 
 <div class="table">
   <table>

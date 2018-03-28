@@ -1,3 +1,9 @@
-<h2>Edit <%= @category.title %></h2>
+<section class="header-section">
+  <div class="header-title">
+    <h6>Edit <%= link_to @category.title, category_path(@category) %> <h6>
+  </div>
+</section>
 
-<%= render partial: "form" %>
+<main>
+  <%= render partial: "form" %>
+</main>
