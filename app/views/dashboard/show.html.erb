@@ -5,7 +5,7 @@
     <p>Jobs by Interest</p>
     <% @interest_scale.each do |interest, count| %>
       <li>
-        <%= Array.new(interest, '*').join %>
+        <%= "#{interest} stars" %>
         <%= "(#{count} jobs)" %>
       </li>
     <% end %>
