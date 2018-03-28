@@ -16,10 +16,14 @@
     <%= f.collection_select(:category_id, @categories, :id, :title, {prompt: "Select a Category"}, {required: true})%>
     <%= link_to "Create a New Category", new_category_path %>
 
-    <%= f.submit %>
+    <div class="cancel-submit">
+      <%= button_to "Cancel", jobs_path, class: 'btn btn-outline-warning' %>
+      <%= f.submit class: 'btn btn-outline-success' %>
+    </div>
   <% end %>
 <% else %>
   <%= form_for @job do |f| %>
+    <%= f.label :company %>
     <%= f.collection_select(:company_id, @companies, :id, :name, {prompt: "Select a Company"}, {required: true}) %>
 
     <%= f.label :title %>
@@ -34,9 +38,14 @@
     <%= f.label :city %>
     <%= f.text_field :city %>
 
-    <%= f.collection_select(:category_id, @categories, :id, :title, {prompt: "Select a Category"}, {required: true})%>
-    <%= link_to "Create a New Category", new_category_path %>
+    <div class="category-select">
+      <%= f.collection_select(:category_id, @categories, :id, :title, {prompt: "Select a Category"}, {required: true, class: 'category-dropdown'})  %>
+      <%= link_to "Create a New Category", new_category_path, class: 'category-link' %>
+    </div>
 
-    <%= f.submit %>
+    <div class="cancel-submit">
+      <%= button_to "Cancel", jobs_path, class: 'btn btn-outline-warning' %>
+      <%= f.submit class: 'btn btn-outline-success' %>
+    </div>
   <% end %>
 <% end %>

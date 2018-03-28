@@ -20,25 +20,30 @@
   <% end %>
 </div>
 
+<div class="table">
 <table>
   <thead class="table-collection">
     <tr class="table-header">
-      <th></th>
-      <th></th>
       <th>Contact Name</th>
       <th>Role</th>
       <th>Email</th>
+      <th></th>
     </tr>
   </thead>
   <tbody class="table-collection">
     <% @contacts.each do |contact| %>
       <tr class="table-item">
-        <td><%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_company_contact_path(@company) %></td>
-        <td><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, company_contact_path(@company, contact), method: :delete, data: { confirm: "You are about to delete this contact."} %></td>
         <td><%= contact.name %></td>
         <td><%= contact.role %></td>
         <td><%= mail_to contact.email %></td>
+        <td>
+        <div class="edit-delete">
+          <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_company_contact_path(@company) %>
+          <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, company_contact_path(@company, contact), method: :delete, data: { confirm: "You are about to delete this contact."} %>
+        <div>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<div>
