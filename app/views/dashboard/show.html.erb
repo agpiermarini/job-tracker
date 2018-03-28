@@ -1,4 +1,10 @@
-<h2>Job Tracker</h2>
+<section class="header-section">
+  <div class="header-title">
+    <h6>
+      Job Tracker
+    </h6>
+  </div>
+</section>
 
 <div class='dash-summary'>
   <div class='jobs-card'>
@@ -23,10 +29,22 @@
 </div>
 
 <div class="dash-locations">
-  <% @locations.each do |location, count| %>
-    <li>
-      <%= link_to "#{location} jobs", controller: 'jobs', location: location  %>
-      <%= "(#{count} jobs)" %>
-    </li>
-  <% end %>
+  <div class="table table-hover">
+    <table>
+      <thead>
+        <tr>
+          <th>Location</th>
+          <th>Number of Jobs</th>
+        <tr>
+      </thead>
+      <tbody>
+        <% @locations.each do |location, count| %>
+          <tr>
+            <td><%= link_to "#{location} jobs", controller: 'jobs', location: location  %></td>
+            <td><%= "(#{count} jobs)" %></td>
+          </tr>
+        <% end %>
+      <tbody>
+    </table>
+  </div>
 </div>
