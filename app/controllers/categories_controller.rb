@@ -35,7 +35,7 @@ class CategoriesController < ApplicationController
       redirect_to categories_path
     else
       flash[:success] = "Failed to update category"
-      redirect_to edit_category_path(@category)
+      render :edit
     end
   end
 

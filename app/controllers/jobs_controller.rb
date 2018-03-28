@@ -47,9 +47,10 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.update(job_params)
     if @job.save
-      flash[:success] = "Updated #{@job.title} at #{@company.name}"
       redirect_to company_job_path(@company, @job)
+      flash[:success] = "Updated #{@job.title} at #{@company.name}"
     else
+      flash[:failure] = "Failed to update #{@job.title} at #{@company.name}"
       render :edit
     end
   end
@@ -57,10 +58,12 @@ class JobsController < ApplicationController
   def destroy
     company = Company.find(params[:company_id])
     job = Job.find(params[:id])
-    job.destroy
-    flash[:success] = "Deleted #{job.title}"
-
-    redirect_to company_jobs_path(company)
+    if job.destroy
+      flash[:success] = "Deleted #{job.title} at #{company.name}"
+    else
+      flash[:failure] = "Failed to delete #{job.title} at #{company.name}"
+    end
+      redirect_to company_jobs_path(company)
   end
 
   private
