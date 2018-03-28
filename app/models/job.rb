@@ -41,7 +41,11 @@ class Job < ApplicationRecord
 
   def self.jobs_by_interest
     scale = group('level_of_interest / 20').order('level_of_interest_20 DESC').count
-    scale[1] += scale.delete(0) if scale[0]
+    if scale[0] && scale[1]
+      scale[1] += scale.delete(0)
+    elsif scale[0]
+      scale[1] = scale.delete(0)
+    end
     scale
   end
 
