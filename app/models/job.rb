@@ -5,7 +5,6 @@ class Job < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
-
   def interest
     stars = (level_of_interest.to_f/20).ceil
     Array.new(stars, "*").join

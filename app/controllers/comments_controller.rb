@@ -7,8 +7,10 @@ class CommentsController < ApplicationController
   end
 
   def create
+    binding.pry
     @job = Job.find(params[:job_id])
-    if @job.comments.create(comment_params)
+    @comment = @job.comments.new(comment_params)
+    if @comment.save
       flash[:success] = "Comment added to #{@job.title} at #{@job.company.name}"
       redirect_to job_path(params[:job_id])
     else
@@ -18,8 +20,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @job = Job.find(params[:job_id])
-    @comment = @job.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
     if @comment.destroy
       flash[:success] = "Comment deleted"
       redirect_to job_path(params[:job_id])

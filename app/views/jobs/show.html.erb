@@ -33,7 +33,7 @@ Level of Interest: <%= @job.interest %>
       <tr>
         <td><%= comment.created_at %></td>
         <td><%= comment.content %></td>
-        <td><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, job_comment_path(comment.id), method: :delete %></td>
+        <td><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, job_comment_path(@job.id, comment.id), method: :delete %></td>
       </tr>
     <% end %>
     <tbody>
