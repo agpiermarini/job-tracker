@@ -24,8 +24,8 @@
     <tbody class="table-collection">
       <% @jobs.each do |job| %>
         <tr class="table-item">
-          <td><%= job.title %></td>
-          <td><%= job.company.name %></td>
+          <td><%= link_to "#{job.title}", job_path(job) %></td>
+          <td><%= link_to "#{job.company.name}", company_path(job.company) %></td>
           <td><%= job.city %></td>
           <td><%= job.interest %></td>
           <td>
@@ -38,4 +38,4 @@
       <% end %>
     </tbody>
   </table>
-</div>  
+</div>
