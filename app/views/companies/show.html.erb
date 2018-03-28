@@ -4,7 +4,7 @@
   </div>
   <div class="header-buttons">
     <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_company_path(@company) %>
-    <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, company_path(@company), method: :delete, data: { confirm: "You are about to delete this job."} %>
+    <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, company_path(@company), method: :delete, data: { confirm: "You are about to delete this company and all of its jobs."} %>
   </div>
 </section>
 
