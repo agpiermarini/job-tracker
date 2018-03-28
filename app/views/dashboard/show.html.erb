@@ -21,8 +21,8 @@
     <p>Top Companies by Interest</p>
     <% @top_companies.each do |company| %>
       <li>
-        <%= company.name %>
-        <%= "(average stars)" %>
+        <%= link_to company.name, company_jobs_path(company) %>
+        <%= "(#{(company.average_interest / 20).round(1)} stars)" %>
       </li>
     <% end %>
   </div>
