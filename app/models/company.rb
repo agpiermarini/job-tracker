@@ -8,7 +8,7 @@ class Company < ApplicationRecord
   end
 
   def self.top_companies
-    select('companies.*, avg(jobs.level_of_interest) AS average_interest')
+    thing = select('companies.*, avg(jobs.level_of_interest) AS average_interest')
       .joins(:jobs)
       .group(:id)
       .order('average_interest DESC')
