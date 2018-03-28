@@ -8,7 +8,7 @@ describe "User edits a job" do
 
     visit company_job_path(company, job)
 
-    click_link "Edit"
+    find(:xpath, ".//a[i[contains(@class, 'fas fa-edit')]]").click
 
     fill_in "job[title]", with: "New Title"
     fill_in "job[description]", with: "New Description"
