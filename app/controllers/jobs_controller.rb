@@ -50,7 +50,7 @@ class JobsController < ApplicationController
       redirect_to company_job_path(@company, @job)
       flash[:success] = "Updated #{@job.title} at #{@company.name}"
     else
-      flash[:failure] = "Failed to update #{@job.title} at #{@company.name}"
+      flash[:alert] = "Failed to update #{@job.title} at #{@company.name}"
       render :edit
     end
   end
@@ -61,7 +61,7 @@ class JobsController < ApplicationController
     if job.destroy
       flash[:success] = "Deleted #{job.title} at #{company.name}"
     else
-      flash[:failure] = "Failed to delete #{job.title} at #{company.name}"
+      flash[:alert] = "Failed to delete #{job.title} at #{company.name}"
     end
       redirect_to company_jobs_path(company)
   end

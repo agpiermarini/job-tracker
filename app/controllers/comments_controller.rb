@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment added to #{@job.title} at #{@job.company.name}"
       redirect_to job_path(params[:job_id])
     else
-      flash[:failure] = "Failed to save comment"
+      flash[:alert] = "Failed to save comment"
       redirect_to job_path(params[:job_id])
     end
   end
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment deleted"
       redirect_to job_path(params[:job_id])
     else
-      flash[:failure] = "Failed to delete comment"
+      flash[:alert] = "Failed to delete comment"
       redirect_to job_path(params[:job_id])
     end
   end

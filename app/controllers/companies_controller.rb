@@ -13,7 +13,7 @@ class CompaniesController < ApplicationController
       flash[:success] = "Created a company named #{@company.name}"
       redirect_to company_path(@company)
     else
-      flash[:failure] = "Failed to create a new company"
+      flash[:alert] = "Failed to create a new company"
       render :new
     end
   end
@@ -35,7 +35,7 @@ class CompaniesController < ApplicationController
       flash[:success] = "Updated #{@company.name}"
       redirect_to company_path(@company)
     else
-      flash[:failure] = "Failed to update #{@company.name}"
+      flash[:alert] = "Failed to update #{@company.name}"
       render :edit
     end
   end
@@ -45,7 +45,7 @@ class CompaniesController < ApplicationController
     if company.destroy
       flash[:success] = "Deleted #{company.name}"
     else
-      flash[:failure] = "Failed to delete #{company.name}"
+      flash[:alert] = "Failed to delete #{company.name}"
     end
     redirect_to companies_path
   end
