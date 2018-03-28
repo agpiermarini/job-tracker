@@ -14,7 +14,7 @@ class CompaniesController < ApplicationController
       redirect_to company_path(company)
     else
       flash[:alert] = "Failed to create a new company"
-      render :new
+      redirect_to new_company_path
     end
   end
 
