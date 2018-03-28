@@ -7,7 +7,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    binding.pry
     @job = Job.find(params[:job_id])
     @comment = @job.comments.new(comment_params)
     if @comment.save
